@@ -8,6 +8,16 @@ TextStyle heading = GoogleFonts.poppins(
   fontSize: 3.h,
   fontWeight: FontWeight.w800,
 );
+TextStyle headingInter = GoogleFonts.inter(
+  color: white,
+  fontSize: 3.5.h,
+  fontWeight: FontWeight.w900,
+);
+TextStyle heading2 = GoogleFonts.poppins(
+  color: black,
+  fontSize: 3.h,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle bodyTextsmall = GoogleFonts.poppins(
   // color: black,
@@ -17,6 +27,11 @@ TextStyle bodyTextsmall = GoogleFonts.poppins(
 TextStyle bodyTextExtrasmall = GoogleFonts.poppins(
   // color: black,
   fontSize: 2.h,
+  fontWeight: FontWeight.w600,
+);
+TextStyle bodyTextMediun = GoogleFonts.poppins(
+  // color: black,
+  fontSize: 3.h,
   fontWeight: FontWeight.w600,
 );
 TextStyle buttonStyle = GoogleFonts.poppins(

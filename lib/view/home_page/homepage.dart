@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:yaaro/utils/colors.dart';
 import 'package:yaaro/utils/text_style.dart';
+import 'package:yaaro/view/grow_money/grow_money.dart';
+import 'package:yaaro/view/investment_page/market.dart';
 import 'package:yaaro/view/profile/profile.dart';
 
 class HomePage extends StatelessWidget {
@@ -76,7 +78,10 @@ class HomePage extends StatelessWidget {
                           children: [
                             HomepageNavButton(
                               text: 'Invest   ',
-                              onTap: () {},
+                              onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (contex) => const MarketData())),
                             ),
                             HomepageNavButton(
                               text: 'Portfolio   ',
@@ -84,7 +89,10 @@ class HomePage extends StatelessWidget {
                             ),
                             HomepageNavButton(
                               text: 'Learn   ',
-                              onTap: () {},
+                              onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (contex) => const GrowMoney())),
                             ),
                           ],
                         ),
@@ -144,7 +152,7 @@ class HomepageNavButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: onTap,
             child: Container(
               margin: EdgeInsets.only(right: 2.h),
               height: 10.h,

@@ -19,10 +19,11 @@ class EnterMobileNo extends StatelessWidget {
         child: SizedBox(
           height: 100.h,
           width: 100.w,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
                   height: 45.h,
                   width: 100.w,
                   child: const Image(
@@ -30,9 +31,12 @@ class EnterMobileNo extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                Container(
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 4.h),
-                  height: 51.5.h,
+                  height: 52.h,
                   width: 100.w,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -128,9 +132,9 @@ class EnterMobileNo extends StatelessWidget {
                       // ),
                     ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),

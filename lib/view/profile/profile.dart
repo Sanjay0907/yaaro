@@ -19,8 +19,47 @@ class Profile extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
-        backgroundColor: blue,
+        automaticallyImplyLeading: false,
+        backgroundColor: white,
+        title: Row(
+          children: [
+            Container(
+              height: 6.h,
+              width: 6.h,
+              // margin: Edge,
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image:
+                          NetworkImage('https://picsum.photos/seed/657/600'))),
+            ),
+            SizedBox(
+              width: 3.w,
+            ),
+            Text(
+              'Hi, Arpit',
+              style: bodyTextsmall.copyWith(color: black),
+            ),
+            // SizedBox(height: 6.,)
+            const Spacer(),
+            IconButton(
+              onPressed: () {},
+              icon: FaIcon(
+                FontAwesomeIcons.solidBell,
+                color: black,
+                size: 3.h,
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: FaIcon(
+                FontAwesomeIcons.ellipsisVertical,
+                color: black,
+                size: 3.h,
+              ),
+            )
+          ],
+        ),
         elevation: 0,
       ),
       backgroundColor: blue,
@@ -30,60 +69,170 @@ class Profile extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 3.h,
+              ),
               Container(
                 margin: EdgeInsets.only(right: 2.h),
-                height: 20.h,
-                width: 20.h,
+                height: 15.h,
+                width: 15.h,
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         image: NetworkImage(
                             'https://picsum.photos/seed/657/600'))),
               ),
-              UserProfileTextField(
-                text: 'Name :',
-                controller: name,
+              SizedBox(
+                height: 6.h,
               ),
-              UserProfileTextField(
-                text: 'Date of Birth :',
-                controller: dateOfBirth,
-              ),
-              UserProfileTextField(
-                text: 'Contact No. :',
-                controller: contactNo,
-              ),
-              UserProfileTextField(
-                text: 'Email :',
-                controller: email,
-              ),
-              UserProfileTextField(
-                text: 'PAN No. :',
-                controller: panNo,
-              ),
-              UserProfileTextField(
-                text: 'Unique Client Code :',
-                controller: uniqueClientCode,
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 0.5.h),
-                    height: 8.8.h,
-                    width: 80.w,
-                    decoration: BoxDecoration(
-                      color: white,
-                      borderRadius: BorderRadius.circular(10),
+              SizedBox(
+                width: 100.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    ProfileDetails(
+                      heading: 'Name',
+                      text: 'Arpit Kumar',
+                      showIcon: false,
                     ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      'INVITE YOUR FRIENDS',
-                      style: heading,
-                    )),
-              )
+                    ProfileDetails(
+                      heading: 'Date of Birth',
+                      text: '12/06/2000',
+                      showIcon: true,
+                      iconData: FontAwesomeIcons.calendarDays,
+                    ),
+                    ProfileDetails(
+                      heading: 'Contact No.',
+                      text: '9340076746',
+                      showIcon: false,
+                    ),
+                    ProfileDetails(
+                      heading: 'Email',
+                      text: 'arpit@gmai.com',
+                      showIcon: false,
+                    ),
+                    ProfileDetails(
+                      heading: 'Parent\'s PAN',
+                      text: 'MBYRQ4678P',
+                      showIcon: false,
+                    ),
+                    ProfileDetails(
+                      heading: 'Unique Client Code',
+                      text: '12886421',
+                      showIcon: false,
+                    ),
+                  ],
+                ),
+              ),
+              // UserProfileTextField(
+              //   text: 'Name :',
+              //   controller: name,
+              // ),
+              // UserProfileTextField(
+              //   text: 'Date of Birth :',
+              //   controller: dateOfBirth,
+              // ),
+              // UserProfileTextField(
+              //   text: 'Contact No. :',
+              //   controller: contactNo,
+              // ),
+              // UserProfileTextField(
+              //   text: 'Email :',
+              //   controller: email,
+              // ),
+              // UserProfileTextField(
+              //   text: 'PAN No. :',
+              //   controller: panNo,
+              // ),
+              // UserProfileTextField(
+              //   text: 'Unique Client Code :',
+              //   controller: uniqueClientCode,
+              // ),
+              // InkWell(
+              //   onTap: () {},
+              //   child: Container(
+              //       margin: EdgeInsets.symmetric(vertical: 0.5.h),
+              //       height: 8.8.h,
+              //       width: 80.w,
+              //       decoration: BoxDecoration(
+              //         color: white,
+              //         borderRadius: BorderRadius.circular(10),
+              //       ),
+              //       alignment: Alignment.center,
+              //       child: Text(
+              //         'INVITE YOUR FRIENDS',
+              //         style: heading,
+              //       )),
+              // )
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProfileDetails extends StatelessWidget {
+  final String heading;
+  final String text;
+  final bool showIcon;
+  final IconData? iconData;
+
+  const ProfileDetails({
+    Key? key,
+    required this.heading,
+    required this.text,
+    required this.showIcon,
+    this.iconData,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 8.h,
+      width: 65.w,
+      margin: EdgeInsets.symmetric(vertical: 1.h),
+      padding: EdgeInsets.symmetric(horizontal: 4.w),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(5.h),
+            bottomRight: Radius.circular(5.h),
+          ),
+          color: white),
+      child: Row(children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              heading + ' :',
+              style: bodyTextExtrasmall.copyWith(fontWeight: FontWeight.w800),
+            ),
+            Text(
+              text,
+              style: bodyTextExtrasmall,
+            )
+          ],
+        ),
+        const Spacer(),
+        if (showIcon == true)
+          Container(
+            height: 6.h,
+            width: 6.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: blueShade1,
+            ),
+            alignment: Alignment.center,
+            child: FaIcon(
+              // FontAwesomeIcons.calendarDays,
+              iconData,
+              size: 3.h,
+              color: white,
+            ),
+          )
+      ]),
     );
   }
 }

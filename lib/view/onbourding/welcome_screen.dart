@@ -19,62 +19,71 @@ class WelcomeScreen extends StatelessWidget {
         child: SizedBox(
           height: 100.h,
           width: 100.w,
-          child: Column(
+          child: Stack(
+            // mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(
-                height: 45.h,
-                width: 100.w,
-                child: const Image(
-                  image: AssetImage('assets/images/girl_on_rocket.png'),
-                  fit: BoxFit.fill,
+              Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  height: 45.h,
+                  width: 100.w,
+                  child: const Image(
+                    image: AssetImage('assets/images/girl_on_rocket.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 4.h),
-                height: 51.5.h,
-                width: 100.w,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30)),
-                    color: Colors.white),
-                child: Column(
-                  children: [
-                    Text(
-                      heading_,
-                      style: heading,
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                      width: 70.w,
-                      child: Text(
-                        aboutYARO,
-                        textAlign: TextAlign.center,
-                        style: bodyTextsmall.copyWith(color: black),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 4.h),
+                  height: 52.h,
+                  // height: MediaQuery.of(context).size.height,
+                  width: 100.w,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                      color: Colors.white),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        heading_,
+                        style: heading,
                       ),
-                    ),
-                    CommonButton(
-                      text: 'Continue as a Parent',
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DetailsScreen(),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                        width: 70.w,
+                        child: Text(
+                          aboutYARO,
+                          textAlign: TextAlign.center,
+                          style: bodyTextsmall.copyWith(color: black),
                         ),
                       ),
-                    ),
-                    CommonButton(
-                      text: 'Continue as a Teen',
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DetailsScreen(),
+                      CommonButton(
+                        text: 'Continue as a Parent',
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailsScreen(),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      CommonButton(
+                        text: 'Continue as a Teen',
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailsScreen(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
