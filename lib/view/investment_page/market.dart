@@ -149,6 +149,25 @@ class MarketData extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15.h,
+                width: 100.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    NSEContainer(
+                      name: 'NSE:NIFTY 50',
+                      currentRate: '16,352.45',
+                      gain: '+1.13',
+                    ),
+                    NSEContainer(
+                      name: 'NSE:NIFTY BANK',
+                      currentRate: '35,613.3',
+                      gain: '+1.48',
+                    ),
+                  ],
+                ),
+              ),
               const CompanyListTile(
                 companyName: 'MRF',
                 companyNickName: 'MRF',
@@ -193,6 +212,58 @@ class MarketData extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class NSEContainer extends StatelessWidget {
+  final String name;
+  final String currentRate;
+  final String gain;
+  const NSEContainer(
+      {Key? key,
+      required this.name,
+      required this.currentRate,
+      required this.gain})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 13.h,
+      width: 45.w,
+      padding: EdgeInsets.all(1.h),
+      decoration: BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.circular(3.h),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            name,
+            style: bodyTextsmall.copyWith(
+              color: black,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          Text(
+            currentRate,
+            style: bodyTextsmall.copyWith(
+              color: black,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          Text(
+            gain,
+            style: bodyTextsmall.copyWith(
+              color: greenShade1,
+              fontWeight: FontWeight.w400,
+            ),
+          )
+        ],
       ),
     );
   }

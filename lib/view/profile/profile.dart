@@ -93,7 +93,7 @@ class Profile extends StatelessWidget {
               SizedBox(
                 width: 100.w,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ProfileDetails(
@@ -147,30 +147,6 @@ class Profile extends StatelessWidget {
                   ],
                 ),
               ),
-              // UserProfileTextField(
-              //   text: 'Name :',
-              //   controller: name,
-              // ),
-              // UserProfileTextField(
-              //   text: 'Date of Birth :',
-              //   controller: dateOfBirth,
-              // ),
-              // UserProfileTextField(
-              //   text: 'Contact No. :',
-              //   controller: contactNo,
-              // ),
-              // UserProfileTextField(
-              //   text: 'Email :',
-              //   controller: email,
-              // ),
-              // UserProfileTextField(
-              //   text: 'PAN No. :',
-              //   controller: panNo,
-              // ),
-              // UserProfileTextField(
-              //   text: 'Unique Client Code :',
-              //   controller: uniqueClientCode,
-              // ),
               InkWell(
                 onTap: () => Navigator.push(
                     context,
@@ -220,14 +196,14 @@ class ProfileDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 8.h,
-      width: 65.w,
+      width: 80.w,
       margin: EdgeInsets.symmetric(vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 4.w),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(5.h),
-            bottomRight: Radius.circular(5.h),
-          ),
+          borderRadius: BorderRadius.circular(10.h
+              // topRight: Radius.circular(5.h),
+              // bottomRight: Radius.circular(5.h),
+              ),
           color: white),
       child: Row(children: [
         Column(

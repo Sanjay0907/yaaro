@@ -7,6 +7,7 @@ import 'package:yaaro/utils/text_style.dart';
 import 'package:yaaro/view/grow_money/grow_money.dart';
 import 'package:yaaro/view/investment_page/market.dart';
 import 'package:yaaro/view/profile/profile.dart';
+import 'package:yaaro/view/profile/profile_new.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -73,8 +74,8 @@ class HomePage extends StatelessWidget {
                         height: 18.h,
                         width: 90.w,
                         decoration: BoxDecoration(
-                            color: purplishPink,
-                            borderRadius: BorderRadius.circular(10)),
+                            color: purpleLight2,
+                            borderRadius: BorderRadius.circular(3.h)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -89,15 +90,22 @@ class HomePage extends StatelessWidget {
                             HomepageNavButton(
                               text: 'Portfolio   ',
                               image: 'assets/images/user_portfolio.jpg',
-                              onTap: () {},
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (contex) => const ProfileNew(),
+                                ),
+                              ),
                             ),
                             HomepageNavButton(
                               text: 'Learn   ',
                               image: 'assets/images/stock_learn.png',
                               onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (contex) => const GrowMoney())),
+                                context,
+                                MaterialPageRoute(
+                                  builder: (contex) => const GrowMoney(),
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -122,6 +130,20 @@ class HomePage extends StatelessWidget {
                         onTap: () async {
                           final url =
                               Uri.parse('https://discord.gg/KMBTT7WTtZ');
+
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          }
+                        },
+                      ),
+                      HomepageBanner(
+                        startingText: 'Join our',
+                        endingText: 'Instagram Page',
+                        imagePath: 'assets/images/instagram.png',
+                        buttonText: 'Join Now',
+                        onTap: () async {
+                          final url = Uri.parse(
+                              'https://www.instagram.com/yaropay.official/');
 
                           if (await canLaunchUrl(url)) {
                             await launchUrl(url);
@@ -163,7 +185,7 @@ class HomepageBanner extends StatelessWidget {
       height: 18.h,
       width: 90.w,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: purpleLight),
+          borderRadius: BorderRadius.circular(3.h), color: purpleLight),
       child: Row(
         children: [
           SizedBox(

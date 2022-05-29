@@ -8,6 +8,7 @@ import 'package:yaaro/view/invite_friends/invite_friends.dart';
 import 'package:yaaro/view/onbourding/details_screen.dart';
 import 'package:yaaro/view/onbourding/welcome_screen.dart';
 import 'package:yaaro/view/profile/profile.dart';
+import 'package:yaaro/view/profile/profile_new.dart';
 
 void main() {
   runApp(Yaaro());
@@ -21,7 +22,7 @@ class Yaaro extends StatelessWidget {
     return Sizer(builder: (context, _, __) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: WelcomeScreen(),
+        home: HomePage(),
       );
     });
   }
