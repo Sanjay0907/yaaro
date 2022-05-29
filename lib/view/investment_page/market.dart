@@ -149,23 +149,23 @@ class MarketData extends StatelessWidget {
                   ),
                 ),
               ),
-              CompanyListTile(
+              const CompanyListTile(
                 companyName: 'MRF',
                 companyNickName: 'MRF',
                 companyImagePath: 'assets/images/company_images/mrf.png',
-                companyStockCurrentPrice: '74654',
+                companyStockCurrentPrice: '74,654',
                 priceChangePercentage: '0.54',
                 runningProfit: false,
               ),
-              CompanyListTile(
+              const CompanyListTile(
                 companyName: 'HDFC',
                 companyNickName: 'HDFC',
                 companyImagePath: 'assets/images/company_images/hdfc.png',
-                companyStockCurrentPrice: '13392',
+                companyStockCurrentPrice: '13,392',
                 priceChangePercentage: '1.85',
                 runningProfit: true,
               ),
-              CompanyListTile(
+              const CompanyListTile(
                 companyName: 'Wipro',
                 companyNickName: 'Wipro',
                 companyImagePath: 'assets/images/company_images/wipro.png',
@@ -173,7 +173,7 @@ class MarketData extends StatelessWidget {
                 priceChangePercentage: '3',
                 runningProfit: true,
               ),
-              CompanyListTile(
+              const CompanyListTile(
                 companyName: 'Ambuja Cement',
                 companyNickName: 'Ambuja Cement',
                 companyImagePath:
@@ -182,11 +182,11 @@ class MarketData extends StatelessWidget {
                 priceChangePercentage: '0.25',
                 runningProfit: true,
               ),
-              CompanyListTile(
+              const CompanyListTile(
                 companyName: 'HCL',
                 companyNickName: 'HCL',
                 companyImagePath: 'assets/images/company_images/hcl.jpg',
-                companyStockCurrentPrice: '1003.9',
+                companyStockCurrentPrice: '1,003.9',
                 priceChangePercentage: '2.37',
                 runningProfit: true,
               ),
@@ -258,10 +258,11 @@ class CompanyListTile extends StatelessWidget {
         ),
         const Spacer(),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              companyStockCurrentPrice,
+              '₹ ' + companyStockCurrentPrice,
               style: bodyTextsmall.copyWith(
                 color: black,
               ),

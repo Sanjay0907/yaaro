@@ -205,7 +205,7 @@ class InviteFriends extends StatelessWidget {
                                         ),
                                       ),
                                       contentPadding:
-                                          EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                          const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                       // backgroundColor: Colors.transparent,
                                       title: Container(
                                         height: 50.h,

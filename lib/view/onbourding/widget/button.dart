@@ -4,9 +4,9 @@ import 'package:yaaro/utils/text_style.dart';
 import '../../../utils/colors.dart';
 
 class CommonButton extends StatelessWidget {
-  String text;
-  VoidCallback onTap;
-  CommonButton({Key? key, required this.text, required this.onTap})
+  final String text;
+  final VoidCallback onTap;
+  const CommonButton({Key? key, required this.text, required this.onTap})
       : super(key: key);
 
   @override

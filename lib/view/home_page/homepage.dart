@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                       'Hi, Arpit',
                       style: bodyTextsmall,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     FaIcon(
                       FontAwesomeIcons.solidBell,
                       size: 3.h,

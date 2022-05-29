@@ -150,13 +150,13 @@ class _GrowMoneyState extends State<GrowMoney> {
                       ),
                       inLiveLearn
                           ? const GrowMoneyContainer()
-                          : HowToInvestContainer(),
+                          : const HowToInvestContainer(),
                       inLiveLearn
                           ? const GrowMoneyContainer()
-                          : HowToInvestContainer(),
+                          : const HowToInvestContainer(),
                       inLiveLearn
                           ? const GrowMoneyContainer()
-                          : HowToInvestContainer(),
+                          : const HowToInvestContainer(),
                       // const GrowMoneyContainer(),
                       // const GrowMoneyContainer(),
                     ],
