@@ -15,3 +15,4 @@ Color greenShade1 = const Color(0xff1ADB69);
 Color red = Colors.red;
 Color orangeShade1 = const Color(0xffF0892A);
 Color purpleShade1 = const Color(0xff7C51D7);
+Color greenDark = const Color.fromARGB(255, 44, 126, 47);

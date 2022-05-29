@@ -22,10 +22,12 @@ class MarketData extends StatelessWidget {
               width: 6.h,
               // margin: Edge,
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image:
-                          NetworkImage('https://picsum.photos/seed/657/600'))),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/user.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             SizedBox(
               width: 3.w,
@@ -63,7 +65,7 @@ class MarketData extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 13.h,
+                height: 14.h,
                 width: 100.w,
                 color: greyshade1,
                 child: Column(
@@ -84,11 +86,31 @@ class MarketData extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
-                        MarketRecentButton(),
-                        MarketRecentButton(),
-                        MarketRecentButton(),
-                        MarketRecentButton(),
-                        MarketRecentButton(),
+                        MarketRecentButton(
+                          companyImagePath:
+                              'assets/images/company_images/wipro.jpeg',
+                          companyName: 'Wipro',
+                        ),
+                        MarketRecentButton(
+                          companyImagePath:
+                              'assets/images/company_images/mrf.png',
+                          companyName: 'MRF',
+                        ),
+                        MarketRecentButton(
+                          companyImagePath:
+                              'assets/images/company_images/hdfc.png',
+                          companyName: 'HDFC',
+                        ),
+                        MarketRecentButton(
+                          companyImagePath:
+                              'assets/images/company_images/ambuja_cement.jpg',
+                          companyName: 'Ambuja Cement',
+                        ),
+                        MarketRecentButton(
+                          companyImagePath:
+                              'assets/images/company_images/hcl.jpg',
+                          companyName: 'HCL',
+                        ),
                       ],
                     ),
                   ],
@@ -127,11 +149,47 @@ class MarketData extends StatelessWidget {
                   ),
                 ),
               ),
-              CompanyListTile(),
-              CompanyListTile(),
-              CompanyListTile(),
-              CompanyListTile(),
-              CompanyListTile(),
+              CompanyListTile(
+                companyName: 'MRF',
+                companyNickName: 'MRF',
+                companyImagePath: 'assets/images/company_images/mrf.png',
+                companyStockCurrentPrice: '74654',
+                priceChangePercentage: '0.54',
+                runningProfit: false,
+              ),
+              CompanyListTile(
+                companyName: 'HDFC',
+                companyNickName: 'HDFC',
+                companyImagePath: 'assets/images/company_images/hdfc.png',
+                companyStockCurrentPrice: '13392',
+                priceChangePercentage: '1.85',
+                runningProfit: true,
+              ),
+              CompanyListTile(
+                companyName: 'Wipro',
+                companyNickName: 'Wipro',
+                companyImagePath: 'assets/images/company_images/wipro.png',
+                companyStockCurrentPrice: '466.95',
+                priceChangePercentage: '3',
+                runningProfit: true,
+              ),
+              CompanyListTile(
+                companyName: 'Ambuja Cement',
+                companyNickName: 'Ambuja Cement',
+                companyImagePath:
+                    'assets/images/company_images/ambuja_cement.jpg',
+                companyStockCurrentPrice: '366',
+                priceChangePercentage: '0.25',
+                runningProfit: true,
+              ),
+              CompanyListTile(
+                companyName: 'HCL',
+                companyNickName: 'HCL',
+                companyImagePath: 'assets/images/company_images/hcl.jpg',
+                companyStockCurrentPrice: '1003.9',
+                priceChangePercentage: '2.37',
+                runningProfit: true,
+              ),
             ],
           ),
         ),
@@ -141,8 +199,21 @@ class MarketData extends StatelessWidget {
 }
 
 class CompanyListTile extends StatelessWidget {
+  final String companyName;
+  final String companyNickName;
+  final String companyImagePath;
+  final String companyStockCurrentPrice;
+  final bool runningProfit;
+  final String priceChangePercentage;
+
   const CompanyListTile({
     Key? key,
+    required this.companyName,
+    required this.companyNickName,
+    required this.companyImagePath,
+    required this.companyStockCurrentPrice,
+    required this.priceChangePercentage,
+    required this.runningProfit,
   }) : super(key: key);
 
   @override
@@ -160,8 +231,8 @@ class CompanyListTile extends StatelessWidget {
         SizedBox(
           height: 7.h,
           width: 7.h,
-          child: const Image(
-            image: AssetImage('assets/images/tcs.png'),
+          child: Image(
+            image: AssetImage(companyImagePath),
             fit: BoxFit.fill,
           ),
         ),
@@ -171,15 +242,15 @@ class CompanyListTile extends StatelessWidget {
         SizedBox(
           width: 50.w,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Relience Industaries Limited',
+                companyName,
                 style: bodyTextsmall.copyWith(height: 1.2, color: black),
               ),
               Text(
-                'Relience',
+                companyNickName,
                 style: bodyTextExtrasmall.copyWith(color: greyDarkShade),
               )
             ],
@@ -187,18 +258,18 @@ class CompanyListTile extends StatelessWidget {
         ),
         const Spacer(),
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              '2460',
+              companyStockCurrentPrice,
               style: bodyTextsmall.copyWith(
                 color: black,
               ),
             ),
             Text(
-              '-2%',
+              ((runningProfit ? '+' : '-') + priceChangePercentage + '%'),
               style: bodyTextsmall.copyWith(
-                color: red,
+                color: runningProfit ? greenDark : red,
               ),
             )
           ],
@@ -209,30 +280,42 @@ class CompanyListTile extends StatelessWidget {
 }
 
 class MarketRecentButton extends StatelessWidget {
+  final String companyImagePath;
+  final String companyName;
   const MarketRecentButton({
     Key? key,
+    required this.companyImagePath,
+    required this.companyName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 6.h,
-          width: 6.h,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: NetworkImage('https://picsum.photos/seed/657/600'),
-              fit: BoxFit.fill,
+    return SizedBox(
+      width: 7.h,
+      height: 10.h,
+      child: Column(
+        children: [
+          Container(
+            height: 6.h,
+            width: 6.h,
+            decoration: BoxDecoration(
+              // shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(1.h),
+              // border: Border.all(color: purpleShade1, width: 1),
+              image: DecorationImage(
+                image: AssetImage(companyImagePath),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
-        ),
-        Text(
-          'HDFC',
-          style: bodyTextsmall.copyWith(color: black),
-        )
-      ],
+          Text(
+            companyName,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: bodyTextExtrasmall.copyWith(color: black),
+          )
+        ],
+      ),
     );
   }
 }

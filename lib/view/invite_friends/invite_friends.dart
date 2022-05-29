@@ -13,7 +13,7 @@ class InviteFriends extends StatelessWidget {
     return Scaffold(
       backgroundColor: blueShade1,
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         backgroundColor: white,
         title: Row(
           children: [
@@ -22,10 +22,12 @@ class InviteFriends extends StatelessWidget {
               width: 6.h,
               // margin: Edge,
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image:
-                          NetworkImage('https://picsum.photos/seed/657/600'))),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/user.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             SizedBox(
               width: 3.w,
@@ -67,19 +69,22 @@ class InviteFriends extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        margin: EdgeInsets.all(1.h),
-                        height: 6.h,
-                        width: 6.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(1.h),
-                          color: white,
-                        ),
-                        alignment: Alignment.center,
-                        child: FaIcon(
-                          FontAwesomeIcons.angleLeft,
-                          color: blueShade1,
-                          size: 3.h,
+                      InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Container(
+                          margin: EdgeInsets.all(1.h),
+                          height: 6.h,
+                          width: 6.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(1.h),
+                            color: white,
+                          ),
+                          alignment: Alignment.center,
+                          child: FaIcon(
+                            FontAwesomeIcons.angleLeft,
+                            color: blueShade1,
+                            size: 3.h,
+                          ),
                         ),
                       )
                     ],
@@ -235,19 +240,23 @@ class InviteFriends extends StatelessWidget {
                                             SizedBox(
                                               height: 10.h,
                                             ),
-                                            Container(
-                                              height: 6.h,
-                                              width: 35.w,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                                color: orangeShade1,
-                                              ),
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                'OK',
-                                                style: heading.copyWith(
-                                                    color: white),
+                                            InkWell(
+                                              onTap: () =>
+                                                  Navigator.pop(context),
+                                              child: Container(
+                                                height: 6.h,
+                                                width: 35.w,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  color: orangeShade1,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'OK',
+                                                  style: heading.copyWith(
+                                                      color: white),
+                                                ),
                                               ),
                                             ),
                                           ],

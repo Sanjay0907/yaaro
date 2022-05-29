@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:yaaro/utils/colors.dart';
 import 'package:yaaro/utils/text_style.dart';
+import 'package:yaaro/view/invite_friends/invite_friends.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -30,8 +31,9 @@ class Profile extends StatelessWidget {
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image:
-                          NetworkImage('https://picsum.photos/seed/657/600'))),
+                    image: AssetImage('assets/images/user.jpg'),
+                    fit: BoxFit.cover,
+                  )),
             ),
             SizedBox(
               width: 3.w,
@@ -70,7 +72,7 @@ class Profile extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 3.h,
+                height: 1.h,
               ),
               Container(
                 margin: EdgeInsets.only(right: 2.h),
@@ -79,48 +81,66 @@ class Profile extends StatelessWidget {
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: NetworkImage(
-                            'https://picsum.photos/seed/657/600'))),
+                      image: AssetImage('assets/images/user.jpg'),
+                      fit: BoxFit.cover,
+                    )),
               ),
               SizedBox(
-                height: 6.h,
+                height: 2.h,
               ),
               SizedBox(
                 width: 100.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
+                  children: [
                     ProfileDetails(
                       heading: 'Name',
                       text: 'Arpit Kumar',
-                      showIcon: false,
+                      showIcon: true,
+                      iconBackGroundColor: white,
+                      iconData: FontAwesomeIcons.pencil,
+                      iconColor: black,
                     ),
                     ProfileDetails(
                       heading: 'Date of Birth',
                       text: '12/06/2000',
                       showIcon: true,
                       iconData: FontAwesomeIcons.calendarDays,
+                      iconBackGroundColor: blueShade1,
+                      iconColor: white,
                     ),
                     ProfileDetails(
                       heading: 'Contact No.',
                       text: '9340076746',
-                      showIcon: false,
+                      showIcon: true,
+                      iconBackGroundColor: white,
+                      iconData: FontAwesomeIcons.pencil,
+                      iconColor: black,
                     ),
                     ProfileDetails(
                       heading: 'Email',
                       text: 'arpit@gmai.com',
-                      showIcon: false,
+                      showIcon: true,
+                      iconBackGroundColor: white,
+                      iconData: FontAwesomeIcons.pencil,
+                      iconColor: black,
                     ),
                     ProfileDetails(
                       heading: 'Parent\'s PAN',
                       text: 'MBYRQ4678P',
-                      showIcon: false,
+                      showIcon: true,
+                      iconBackGroundColor: white,
+                      iconData: FontAwesomeIcons.pencil,
+                      iconColor: black,
                     ),
                     ProfileDetails(
                       heading: 'Unique Client Code',
                       text: '12886421',
-                      showIcon: false,
+                      showIcon: true,
+                      iconBackGroundColor: white,
+                      iconData: FontAwesomeIcons.pencil,
+                      iconColor: black,
                     ),
                   ],
                 ),
@@ -149,22 +169,25 @@ class Profile extends StatelessWidget {
               //   text: 'Unique Client Code :',
               //   controller: uniqueClientCode,
               // ),
-              // InkWell(
-              //   onTap: () {},
-              //   child: Container(
-              //       margin: EdgeInsets.symmetric(vertical: 0.5.h),
-              //       height: 8.8.h,
-              //       width: 80.w,
-              //       decoration: BoxDecoration(
-              //         color: white,
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       alignment: Alignment.center,
-              //       child: Text(
-              //         'INVITE YOUR FRIENDS',
-              //         style: heading,
-              //       )),
-              // )
+              InkWell(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InviteFriends())),
+                child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 0.5.h),
+                    height: 8.8.h,
+                    width: 80.w,
+                    decoration: BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'INVITE YOUR FRIENDS',
+                      style: heading,
+                    )),
+              )
             ],
           ),
         ),
@@ -178,6 +201,8 @@ class ProfileDetails extends StatelessWidget {
   final String text;
   final bool showIcon;
   final IconData? iconData;
+  final Color iconBackGroundColor;
+  final Color iconColor;
 
   const ProfileDetails({
     Key? key,
@@ -185,6 +210,8 @@ class ProfileDetails extends StatelessWidget {
     required this.text,
     required this.showIcon,
     this.iconData,
+    required this.iconColor,
+    required this.iconBackGroundColor,
   }) : super(key: key);
 
   @override
@@ -222,14 +249,14 @@ class ProfileDetails extends StatelessWidget {
             width: 6.h,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: blueShade1,
+              color: iconBackGroundColor,
             ),
             alignment: Alignment.center,
             child: FaIcon(
               // FontAwesomeIcons.calendarDays,
               iconData,
               size: 3.h,
-              color: white,
+              color: iconColor,
             ),
           )
       ]),

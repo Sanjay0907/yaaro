@@ -32,8 +32,8 @@ class _GrowMoneyState extends State<GrowMoney> {
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image:
-                          NetworkImage('https://picsum.photos/seed/657/600'))),
+                      image: AssetImage('assets/images/user.jpg'),
+                      fit: BoxFit.cover)),
             ),
             Text(
               'Arpit',
