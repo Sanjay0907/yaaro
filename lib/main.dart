@@ -22,7 +22,7 @@ class Yaaro extends StatelessWidget {
     return Sizer(builder: (context, _, __) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: WelcomeScreen(),
       );
     });
   }

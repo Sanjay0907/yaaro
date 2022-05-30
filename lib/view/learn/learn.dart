@@ -92,12 +92,9 @@ class _LearnState extends State<Learn> {
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   height: 76.h,
-                  // height: MediaQuery.of(context).size.height,
                   width: 100.w,
                   padding: EdgeInsets.only(
                     top: 4.h,
-                    // right: 5.w,
-                    // left: 5.w,
                   ),
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
