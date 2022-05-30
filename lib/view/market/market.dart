@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
+import 'package:yaaro/view/market/stock_details.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/text_style.dart';
@@ -168,31 +169,79 @@ class MarketData extends StatelessWidget {
                   ],
                 ),
               ),
-              const CompanyListTile(
+              CompanyListTile(
                 companyName: 'MRF',
                 companyNickName: 'MRF',
                 companyImagePath: 'assets/images/company_images/mrf.png',
                 companyStockCurrentPrice: '74,654',
                 priceChangePercentage: '0.54',
                 runningProfit: false,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StockDetails(
+                      imagePath: 'assets/images/company_images/mrf.png',
+                      currentPrice: '74,654',
+                      companyType: 'Auto Components',
+                      todaysGain: '+733.20 ',
+                      gainPercentage: '(0.98%)',
+                      todaysLow: '74,862.15',
+                      todaysHigh: '75,795.50',
+                      weekLow: '63,000',
+                      weekHigh: '87,550',
+                    ),
+                  ),
+                ),
               ),
-              const CompanyListTile(
+              CompanyListTile(
                 companyName: 'HDFC',
                 companyNickName: 'HDFC',
                 companyImagePath: 'assets/images/company_images/hdfc.png',
                 companyStockCurrentPrice: '13,392',
                 priceChangePercentage: '1.85',
                 runningProfit: true,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StockDetails(
+                      imagePath: 'assets/images/company_images/hdfc.png',
+                      currentPrice: '1,401',
+                      companyType: 'Banks',
+                      todaysGain: '+9.50 ',
+                      gainPercentage: '(0.68%)',
+                      todaysLow: '1,398.45',
+                      todaysHigh: '1,420.50',
+                      weekLow: '1,278.30',
+                      weekHigh: '1,725',
+                    ),
+                  ),
+                ),
               ),
-              const CompanyListTile(
+              CompanyListTile(
                 companyName: 'Wipro',
                 companyNickName: 'Wipro',
                 companyImagePath: 'assets/images/company_images/wipro.png',
                 companyStockCurrentPrice: '466.95',
                 priceChangePercentage: '3',
                 runningProfit: true,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StockDetails(
+                      imagePath: 'assets/images/company_images/wipro.png',
+                      currentPrice: '476.25',
+                      companyType: 'IT Services',
+                      todaysGain: '+9.30 ',
+                      gainPercentage: '(1.99%)',
+                      todaysLow: '473.15',
+                      todaysHigh: '481.50',
+                      weekLow: '443.20',
+                      weekHigh: '739.85',
+                    ),
+                  ),
+                ),
               ),
-              const CompanyListTile(
+              CompanyListTile(
                 companyName: 'Ambuja Cement',
                 companyNickName: 'Ambuja Cement',
                 companyImagePath:
@@ -200,14 +249,47 @@ class MarketData extends StatelessWidget {
                 companyStockCurrentPrice: '366',
                 priceChangePercentage: '0.25',
                 runningProfit: true,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StockDetails(
+                      imagePath:
+                          'assets/images/company_images/ambuja_cement.jpg',
+                      currentPrice: '371',
+                      companyType: 'Building Materials',
+                      todaysGain: '+5.25',
+                      gainPercentage: '(1.43%)',
+                      todaysLow: '366.75',
+                      todaysHigh: '372.50',
+                      weekLow: '274.00',
+                      weekHigh: '442.50',
+                    ),
+                  ),
+                ),
               ),
-              const CompanyListTile(
+              CompanyListTile(
                 companyName: 'HCL',
                 companyNickName: 'HCL',
                 companyImagePath: 'assets/images/company_images/hcl.jpg',
                 companyStockCurrentPrice: '1,003.9',
                 priceChangePercentage: '2.37',
                 runningProfit: true,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StockDetails(
+                      imagePath: 'assets/images/company_images/hcl.jpg',
+                      currentPrice: '1,039',
+                      companyType: 'IT Services',
+                      todaysGain: '+36 ',
+                      gainPercentage: '(3.59%)',
+                      todaysLow: '1,015.65',
+                      todaysHigh: '1,053.35',
+                      weekLow: '927.70',
+                      weekHigh: '1,377.75',
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -276,7 +358,7 @@ class CompanyListTile extends StatelessWidget {
   final String companyStockCurrentPrice;
   final bool runningProfit;
   final String priceChangePercentage;
-
+  final VoidCallback onTap;
   const CompanyListTile({
     Key? key,
     required this.companyName,
@@ -285,68 +367,72 @@ class CompanyListTile extends StatelessWidget {
     required this.companyStockCurrentPrice,
     required this.priceChangePercentage,
     required this.runningProfit,
+    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 10.h,
-      width: 100.w,
-      padding: EdgeInsets.symmetric(vertical: 0.5.h, horizontal: 2.w),
-      margin: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(1.h),
-        color: greyshade1,
-      ),
-      child: Row(children: [
-        SizedBox(
-          height: 7.h,
-          width: 7.h,
-          child: Image(
-            image: AssetImage(companyImagePath),
-            fit: BoxFit.fill,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 10.h,
+        width: 100.w,
+        padding: EdgeInsets.symmetric(vertical: 0.5.h, horizontal: 2.w),
+        margin: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(1.h),
+          color: greyshade1,
+        ),
+        child: Row(children: [
+          SizedBox(
+            height: 7.h,
+            width: 7.h,
+            child: Image(
+              image: AssetImage(companyImagePath),
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        SizedBox(
-          width: 2.w,
-        ),
-        SizedBox(
-          width: 50.w,
-          child: Column(
+          SizedBox(
+            width: 2.w,
+          ),
+          SizedBox(
+            width: 50.w,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  companyName,
+                  style: bodyTextsmall.copyWith(height: 1.2, color: black),
+                ),
+                Text(
+                  companyNickName,
+                  style: bodyTextExtrasmall.copyWith(color: greyDarkShade),
+                )
+              ],
+            ),
+          ),
+          const Spacer(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                companyName,
-                style: bodyTextsmall.copyWith(height: 1.2, color: black),
+                '₹ ' + companyStockCurrentPrice,
+                style: bodyTextsmall.copyWith(
+                  color: black,
+                ),
               ),
               Text(
-                companyNickName,
-                style: bodyTextExtrasmall.copyWith(color: greyDarkShade),
+                ((runningProfit ? '+' : '-') + priceChangePercentage + '%'),
+                style: bodyTextsmall.copyWith(
+                  color: runningProfit ? greenDark : red,
+                ),
               )
             ],
-          ),
-        ),
-        const Spacer(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              '₹ ' + companyStockCurrentPrice,
-              style: bodyTextsmall.copyWith(
-                color: black,
-              ),
-            ),
-            Text(
-              ((runningProfit ? '+' : '-') + priceChangePercentage + '%'),
-              style: bodyTextsmall.copyWith(
-                color: runningProfit ? greenDark : red,
-              ),
-            )
-          ],
-        )
-      ]),
+          )
+        ]),
+      ),
     );
   }
 }
