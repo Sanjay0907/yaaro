@@ -14,7 +14,7 @@ class ProfileNew extends StatelessWidget {
     TextEditingController nameController =
         TextEditingController(text: 'Arpit Kumar');
     TextEditingController mobileController =
-        TextEditingController(text: '7726093256');
+        TextEditingController(text: '9219527890');
     TextEditingController emailController =
         TextEditingController(text: 'arpit@gmail.com');
     TextEditingController dobController =
@@ -112,18 +112,24 @@ class ProfileNew extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      height: 6.h,
-                      width: 38.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: purple,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Redeem Coins',
-                        style: bodyTextsmall.copyWith(color: white),
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 1.h),
+                          height: 6.h,
+                          width: 38.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: purple,
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Redeem Coins',
+                            style: bodyTextsmall.copyWith(color: white),
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
@@ -190,7 +196,7 @@ class ProfileNew extends StatelessWidget {
                     width: 100.w,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                        1.h,
+                        5.h,
                       ),
                       color: purpleLight,
                     ),
@@ -274,7 +280,7 @@ class ProfileNew extends StatelessWidget {
                 ),
                 alignment: Alignment.center,
                 child: const Image(
-                  image: AssetImage('assets/images/yaro.png'),
+                  image: AssetImage('assets/images/yaro_logo.png'),
                   fit: BoxFit.fitHeight,
                 ),
               )

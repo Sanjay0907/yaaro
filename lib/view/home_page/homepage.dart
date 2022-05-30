@@ -4,8 +4,9 @@ import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yaaro/utils/colors.dart';
 import 'package:yaaro/utils/text_style.dart';
-import 'package:yaaro/view/grow_money/grow_money.dart';
+
 import 'package:yaaro/view/investment_page/market.dart';
+import 'package:yaaro/view/learn/learn.dart';
 import 'package:yaaro/view/profile/profile.dart';
 import 'package:yaaro/view/profile/profile_new.dart';
 
@@ -103,7 +104,7 @@ class HomePage extends StatelessWidget {
                               onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (contex) => const GrowMoney(),
+                                  builder: (contex) => const Learn(),
                                 ),
                               ),
                             ),
@@ -123,8 +124,8 @@ class HomePage extends StatelessWidget {
                         buttonText: 'Book a Session',
                       ),
                       HomepageBanner(
-                        startingText: 'Join our',
-                        endingText: 'club on Discord',
+                        startingText: 'Join Discord club of',
+                        endingText: '',
                         imagePath: 'assets/images/discord_.png',
                         buttonText: 'Join Now',
                         onTap: () async {
@@ -137,8 +138,8 @@ class HomePage extends StatelessWidget {
                         },
                       ),
                       HomepageBanner(
-                        startingText: 'Join our',
-                        endingText: 'Instagram Page',
+                        startingText: 'Join Instagram Page of',
+                        endingText: '',
                         imagePath: 'assets/images/instagram.png',
                         buttonText: 'Join Now',
                         onTap: () async {

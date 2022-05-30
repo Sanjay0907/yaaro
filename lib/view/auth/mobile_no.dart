@@ -88,7 +88,7 @@ class EnterMobileNo extends StatelessWidget {
                               color: Color(0xFF101213),
                               size: 24,
                             ),
-                            prefixStyle: TextStyle(color: Colors.black),
+                            prefixStyle: const TextStyle(color: Colors.black),
                             hintText: 'Mobile No.',
                             hintStyle: const TextStyle(
                               color: Colors.grey,

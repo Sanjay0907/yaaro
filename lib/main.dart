@@ -11,7 +11,7 @@ import 'package:yaaro/view/profile/profile.dart';
 import 'package:yaaro/view/profile/profile_new.dart';
 
 void main() {
-  runApp(Yaaro());
+  runApp(const Yaaro());
 }
 
 class Yaaro extends StatelessWidget {

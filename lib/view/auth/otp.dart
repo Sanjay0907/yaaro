@@ -15,7 +15,7 @@ class EnterOTP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String heading_ = 'OTP Verification';
-    TextEditingController mobileNo = TextEditingController();
+    TextEditingController otp = TextEditingController();
     bool hasError = false;
     StreamController<ErrorAnimationType> errorController =
         StreamController<ErrorAnimationType>();

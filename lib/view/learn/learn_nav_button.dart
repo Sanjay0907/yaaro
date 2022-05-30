@@ -4,10 +4,10 @@ import 'package:sizer/sizer.dart';
 import '../../utils/colors.dart';
 import '../../utils/text_style.dart';
 
-class GrowMoneyNavButton extends StatelessWidget {
+class LearnNavButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  const GrowMoneyNavButton({
+  const LearnNavButton({
     Key? key,
     required this.text,
     required this.onTap,
@@ -32,8 +32,8 @@ class GrowMoneyNavButton extends StatelessWidget {
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image:
-                          NetworkImage('https://picsum.photos/seed/657/600'))),
+                      image: AssetImage('assets/images/stories.png'),
+                      fit: BoxFit.cover)),
             ),
           ),
           Text(
