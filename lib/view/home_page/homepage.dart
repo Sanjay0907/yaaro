@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:yaaro/utils/colors.dart';
 import 'package:yaaro/utils/text_style.dart';
 import 'package:yaaro/view/learn/learn.dart';
+import 'package:yaaro/view/portfolio/portfolio.dart';
 import 'package:yaaro/view/profile/profile.dart';
 import 'package:yaaro/view/profile/profile_new.dart';
 
@@ -94,7 +95,7 @@ class HomePage extends StatelessWidget {
                               onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (contex) => const ProfileNew(),
+                                  builder: (contex) => const Portfolio(),
                                 ),
                               ),
                             ),

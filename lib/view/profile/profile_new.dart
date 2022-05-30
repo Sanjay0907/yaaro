@@ -112,24 +112,91 @@ class ProfileNew extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 1.h),
-                          height: 6.h,
-                          width: 38.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: purple,
+                    InkWell(
+                      onTap: () => showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.h),
+                                ),
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              // backgroundColor: Colors.transparent,
+                              title: Container(
+                                height: 50.h,
+                                width: 95.w,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.h),
+                                    color: white),
+                                child: Column(
+                                  // mainAxisAlignment:
+                                  // MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Coming Soon',
+                                      style: heading.copyWith(
+                                          color: blueShade1,
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                    SizedBox(
+                                      width: 70.w,
+                                      child: Text(
+                                        'Team YARO is working  24/7 to bring you the  best of us',
+                                        textAlign: TextAlign.center,
+                                        style: bodyTextMediun.copyWith(
+                                            color: black),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    InkWell(
+                                      onTap: () => Navigator.pop(context),
+                                      child: Container(
+                                        height: 6.h,
+                                        width: 35.w,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          color: orangeShade1,
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          'OK',
+                                          style: heading.copyWith(color: white),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 1.h),
+                            height: 6.h,
+                            width: 38.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: purple,
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Redeem Coins',
+                              style: bodyTextsmall.copyWith(color: white),
+                            ),
                           ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Redeem Coins',
-                            style: bodyTextsmall.copyWith(color: white),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     )
                   ],
                 ),
