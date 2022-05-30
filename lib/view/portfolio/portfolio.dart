@@ -54,7 +54,7 @@ class Portfolio extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      height: 23.h,
+                      height: 25.h,
                       width: 90.w,
                       padding: EdgeInsets.symmetric(
                         vertical: 1.h,
@@ -77,7 +77,7 @@ class Portfolio extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           SizedBox(
-                            height: 8.h,
+                            // height: 8.h,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -99,7 +99,7 @@ class Portfolio extends StatelessWidget {
                             thickness: 2,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            // height: 8.h,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -178,6 +178,7 @@ class PortfolioDetails extends StatelessWidget {
         children: [
           Text(
             heading,
+            textAlign: TextAlign.center,
             style: bodyTextsmall.copyWith(color: grey),
           ),
           Text(
