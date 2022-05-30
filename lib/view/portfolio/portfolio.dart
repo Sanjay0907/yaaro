@@ -48,13 +48,13 @@ class Portfolio extends StatelessWidget {
               height: 2.h,
             ),
             SizedBox(
-              height: 28.h,
+              height: 30.h,
               child: Stack(
                 children: [
                   Align(
                     alignment: Alignment.center,
                     child: Container(
-                      height: 25.h,
+                      height: 28.h,
                       width: 90.w,
                       padding: EdgeInsets.symmetric(
                         vertical: 1.h,
