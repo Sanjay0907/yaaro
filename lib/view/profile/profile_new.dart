@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
@@ -52,14 +53,32 @@ class ProfileNew extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                height: 15.h,
-                width: 15.h,
-                decoration: const BoxDecoration(
+              Badge(
+                badgeColor: purpleLight,
+                position: BadgePosition.bottomEnd(bottom: -2, end: 2),
+                badgeContent: Container(
+                  height: 3.h,
+                  width: 3.h,
+                  decoration: BoxDecoration(
+                    // color: purpleLight,
                     shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/user.jpg'),
-                        fit: BoxFit.cover)),
+                  ),
+                  alignment: Alignment.center,
+                  child: FaIcon(
+                    FontAwesomeIcons.camera,
+                    color: black,
+                    size: 3.h,
+                  ),
+                ),
+                child: Container(
+                  height: 15.h,
+                  width: 15.h,
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/user.jpg'),
+                          fit: BoxFit.cover)),
+                ),
               ),
               SizedBox(
                 height: 2.h,

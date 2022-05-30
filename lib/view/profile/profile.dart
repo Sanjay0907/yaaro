@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
@@ -76,16 +77,33 @@ class Profile extends StatelessWidget {
               SizedBox(
                 height: 1.h,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 2.h),
-                height: 15.h,
-                width: 15.h,
-                decoration: const BoxDecoration(
+              Badge(
+                position: BadgePosition.bottomEnd(),
+                badgeContent: Container(
+                  height: 3.h,
+                  width: 3.h,
+                  decoration: BoxDecoration(
+                    color: purpleLight,
                     shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/user.jpg'),
-                      fit: BoxFit.cover,
-                    )),
+                  ),
+                  alignment: Alignment.center,
+                  child: FaIcon(
+                    FontAwesomeIcons.camera,
+                    color: black,
+                    size: 3.h,
+                  ),
+                ),
+                child: Container(
+                  margin: EdgeInsets.only(right: 2.h),
+                  height: 15.h,
+                  width: 15.h,
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/user.jpg'),
+                        fit: BoxFit.cover,
+                      )),
+                ),
               ),
               SizedBox(
                 height: 2.h,

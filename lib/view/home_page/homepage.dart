@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
                 height: 13.h,
                 width: 100.w,
-                color: grey,
+                color: purpleLight,
                 alignment: Alignment.center,
                 child: Row(
                   children: [

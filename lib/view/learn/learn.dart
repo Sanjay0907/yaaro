@@ -23,7 +23,7 @@ class _LearnState extends State<Learn> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: white,
+        backgroundColor: purpleLight,
         title: Row(
           children: [
             Container(
@@ -58,7 +58,7 @@ class _LearnState extends State<Learn> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
-                  color: grey,
+                  color: purpleLight,
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 1.h),
                   height: 13.h,
