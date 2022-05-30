@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:yaaro/utils/colors.dart';
 import 'package:yaaro/utils/text_style.dart';
+import 'package:yaaro/view/stories/story.dart';
 
 import 'learn_nav_button.dart';
 // import 'package:yaaro/view/invite_friends/invite_friends_nav_button.dart';
@@ -67,19 +68,65 @@ class _LearnState extends State<Learn> {
                     children: [
                       LearnNavButton(
                         text: 'Stories',
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Story(
+                              imagePath:
+                                  'assets/images/potrait_images/waren_buffet.jpg',
+                              name: '- Waren Buffet',
+                              quote:
+                                  'If you dont find a way to make money while you sleep, you will work until you die.',
+                            ),
+                          ),
+                        ),
                       ),
                       LearnNavButton(
                         text: 'Stories',
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Story(
+                              imagePath:
+                                  'assets/images/potrait_images/robert_kiyosaki.png',
+                              name: '- Robert Kiyosaki',
+                              quote:
+                                  'Its not how much money you make but how much money you keep, how hard it works for you, and how many generation you keep it for.',
+                            ),
+                          ),
+                        ),
                       ),
                       LearnNavButton(
                         text: 'Stories',
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Story(
+                                imagePath:
+                                    'assets/images/potrait_images/john_templeton.jpg',
+                                name: '- John Templeton',
+                                quote:
+                                    'The four most expensive words in the English language are, \'This time it\'s different.\''
+                                // 'Its not how much money you make but how much money you keep, how hard it works for you, and how many generation you keep it for.',
+                                ),
+                          ),
+                        ),
                       ),
                       LearnNavButton(
                         text: 'Stories',
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Story(
+                                imagePath:
+                                    'assets/images/potrait_images/waren_buffet.jpg',
+                                name: '- Waren Buffet',
+                                quote:
+                                    'The stock market is a device for transferring money from the impatient to the patient'
+                                // 'If you dont find a way to make money while you sleep, you will work until you die.',
+                                ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -101,7 +148,7 @@ class _LearnState extends State<Learn> {
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      color: blue),
+                      color: blueShade1),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [

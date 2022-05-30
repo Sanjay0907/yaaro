@@ -23,7 +23,7 @@ class LearnNavButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: onTap,
             child: Container(
               // padding: EdgeInsets.symmetric(vertical: 0.5.h),
               margin: EdgeInsets.only(right: 2.h),

@@ -74,6 +74,7 @@ flutter:
     - assets/images/company_images/
     - assets/images/learn_images/
     - assets/images/stock_investors/
+    - assets/images/potrait_images/
     - assets/images/app_logo/
   #   - images/a_dot_ham.jpeg
 
